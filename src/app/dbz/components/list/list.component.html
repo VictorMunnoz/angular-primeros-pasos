@@ -1,0 +1,19 @@
+<h4>Listado de personajes</h4>
+ <ul class="list-group">
+    <li 
+        *ngFor="let character of charactersList; let i = index; let isOdd = odd; let isFirst = first" 
+         class="list-group-item d-flex justify-content-between align-items-center"
+         [ngClass]="{
+            'list-group-item-dark':isOdd,
+            'list-group-item-primary':isFirst,
+         }">
+         <div>
+            <span class="text-primary">{{ i +1 }}.- </span>
+            <span>{{ character.name }} - </span>
+            <strong>Power: </strong>
+            <span>{{ character.power }}</span>
+         </div>
+         
+         <button class="btn btn-danger" (click)="deleteItemsById(character.id)">X</button>
+    </li>
+ </ul>
